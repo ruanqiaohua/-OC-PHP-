@@ -10,11 +10,18 @@
 		3C200656D0FEA6B3626B622B /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AEE6F7CAF64EEC0258B81E /* Pods_Demo.framework */; };
 		F1519B941CFC30500064B27E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1519B931CFC30500064B27E /* main.m */; };
 		F1519B971CFC30500064B27E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1519B961CFC30500064B27E /* AppDelegate.m */; };
-		F1519B9A1CFC30500064B27E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1519B991CFC30500064B27E /* ViewController.m */; };
 		F1519B9D1CFC30500064B27E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1519B9B1CFC30500064B27E /* Main.storyboard */; };
 		F1519B9F1CFC30500064B27E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1519B9E1CFC30500064B27E /* Assets.xcassets */; };
 		F1519BA21CFC30500064B27E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1519BA01CFC30500064B27E /* LaunchScreen.storyboard */; };
+		F160F5481CFE5DE50037BEDB /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F160F5471CFE5DE50037BEDB /* MainTabBarController.m */; };
+		F160F54B1CFE60870037BEDB /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F160F54A1CFE60870037BEDB /* PhotoViewController.m */; };
+		F190BEEB1D03AD3B000C328D /* PhotoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F190BEEA1D03AD3B000C328D /* PhotoCollectionView.m */; };
+		F190BEEE1D03B798000C328D /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F190BEED1D03B798000C328D /* PhotoCollectionViewCell.m */; };
+		F198EF401CFF139900CB12C2 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F198EF3F1CFF139900CB12C2 /* MineViewController.m */; };
+		F198EF431CFF216F00CB12C2 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F198EF421CFF216F00CB12C2 /* DataManager.m */; };
 		F19A26BE1CFDCC87006FAA7C /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19A26BD1CFDCC87006FAA7C /* LogInViewController.m */; };
+		F1D864C51D026A200099677E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D864C41D026A200099677E /* RootViewController.m */; };
+		F1D864C81D026A8C0099677E /* ChangePasswdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D864C71D026A8C0099677E /* ChangePasswdViewController.m */; };
 		F1F02D341CFD52F50054B502 /* qidongye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1F02D331CFD52F50054B502 /* qidongye.jpg */; };
 		F1F02D371CFD5C7D0054B502 /* LogOnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F02D361CFD5C7D0054B502 /* LogOnViewController.m */; };
 /* End PBXBuildFile section */
@@ -27,14 +34,29 @@
 		F1519B931CFC30500064B27E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F1519B951CFC30500064B27E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1519B961CFC30500064B27E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1519B981CFC30500064B27E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F1519B991CFC30500064B27E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F1519B9C1CFC30500064B27E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1519B9E1CFC30500064B27E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1519BA11CFC30500064B27E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1519BA31CFC30500064B27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F160F5461CFE5DE50037BEDB /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		F160F5471CFE5DE50037BEDB /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		F160F5491CFE60870037BEDB /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		F160F54A1CFE60870037BEDB /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		F190BEE91D03AD3B000C328D /* PhotoCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionView.h; sourceTree = "<group>"; };
+		F190BEEA1D03AD3B000C328D /* PhotoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionView.m; sourceTree = "<group>"; };
+		F190BEEC1D03B798000C328D /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		F190BEED1D03B798000C328D /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		F198EF3E1CFF139900CB12C2 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		F198EF3F1CFF139900CB12C2 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		F198EF411CFF216F00CB12C2 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		F198EF421CFF216F00CB12C2 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		F198EF441CFF261800CB12C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F19A26BC1CFDCC87006FAA7C /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		F19A26BD1CFDCC87006FAA7C /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		F1D864C31D026A200099677E /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		F1D864C41D026A200099677E /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		F1D864C61D026A8C0099677E /* ChangePasswdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswdViewController.h; sourceTree = "<group>"; };
+		F1D864C71D026A8C0099677E /* ChangePasswdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswdViewController.m; sourceTree = "<group>"; };
 		F1F02D331CFD52F50054B502 /* qidongye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = qidongye.jpg; sourceTree = "<group>"; };
 		F1F02D351CFD5C7D0054B502 /* LogOnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogOnViewController.h; sourceTree = "<group>"; };
 		F1F02D361CFD5C7D0054B502 /* LogOnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogOnViewController.m; sourceTree = "<group>"; };
@@ -92,12 +114,18 @@
 			children = (
 				F1519B951CFC30500064B27E /* AppDelegate.h */,
 				F1519B961CFC30500064B27E /* AppDelegate.m */,
-				F1519B981CFC30500064B27E /* ViewController.h */,
-				F1519B991CFC30500064B27E /* ViewController.m */,
+				F1D864C31D026A200099677E /* RootViewController.h */,
+				F1D864C41D026A200099677E /* RootViewController.m */,
 				F1F02D351CFD5C7D0054B502 /* LogOnViewController.h */,
 				F1F02D361CFD5C7D0054B502 /* LogOnViewController.m */,
 				F19A26BC1CFDCC87006FAA7C /* LogInViewController.h */,
 				F19A26BD1CFDCC87006FAA7C /* LogInViewController.m */,
+				F160F5461CFE5DE50037BEDB /* MainTabBarController.h */,
+				F160F5471CFE5DE50037BEDB /* MainTabBarController.m */,
+				F190BEE61D03ACF9000C328D /* Photo */,
+				F1D864BC1D0258570099677E /* Mine */,
+				F198EF411CFF216F00CB12C2 /* DataManager.h */,
+				F198EF421CFF216F00CB12C2 /* DataManager.m */,
 				F1519B9B1CFC30500064B27E /* Main.storyboard */,
 				F1519B9E1CFC30500064B27E /* Assets.xcassets */,
 				F1519BA01CFC30500064B27E /* LaunchScreen.storyboard */,
@@ -112,8 +140,49 @@
 			children = (
 				F1F02D331CFD52F50054B502 /* qidongye.jpg */,
 				F1519B931CFC30500064B27E /* main.m */,
+				F198EF441CFF261800CB12C2 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F190BEE61D03ACF9000C328D /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				F190BEE81D03AD14000C328D /* View */,
+				F190BEE71D03AD0A000C328D /* ViewController */,
+			);
+			name = Photo;
+			sourceTree = "<group>";
+		};
+		F190BEE71D03AD0A000C328D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F160F5491CFE60870037BEDB /* PhotoViewController.h */,
+				F160F54A1CFE60870037BEDB /* PhotoViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		F190BEE81D03AD14000C328D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F190BEE91D03AD3B000C328D /* PhotoCollectionView.h */,
+				F190BEEA1D03AD3B000C328D /* PhotoCollectionView.m */,
+				F190BEEC1D03B798000C328D /* PhotoCollectionViewCell.h */,
+				F190BEED1D03B798000C328D /* PhotoCollectionViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F1D864BC1D0258570099677E /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F198EF3E1CFF139900CB12C2 /* MineViewController.h */,
+				F198EF3F1CFF139900CB12C2 /* MineViewController.m */,
+				F1D864C61D026A8C0099677E /* ChangePasswdViewController.h */,
+				F1D864C71D026A8C0099677E /* ChangePasswdViewController.m */,
+			);
+			name = Mine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,11 +308,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1519B9A1CFC30500064B27E /* ViewController.m in Sources */,
+				F1D864C81D026A8C0099677E /* ChangePasswdViewController.m in Sources */,
+				F190BEEE1D03B798000C328D /* PhotoCollectionViewCell.m in Sources */,
 				F1519B971CFC30500064B27E /* AppDelegate.m in Sources */,
+				F160F5481CFE5DE50037BEDB /* MainTabBarController.m in Sources */,
 				F19A26BE1CFDCC87006FAA7C /* LogInViewController.m in Sources */,
+				F1D864C51D026A200099677E /* RootViewController.m in Sources */,
 				F1F02D371CFD5C7D0054B502 /* LogOnViewController.m in Sources */,
 				F1519B941CFC30500064B27E /* main.m in Sources */,
+				F160F54B1CFE60870037BEDB /* PhotoViewController.m in Sources */,
+				F190BEEB1D03AD3B000C328D /* PhotoCollectionView.m in Sources */,
+				F198EF431CFF216F00CB12C2 /* DataManager.m in Sources */,
+				F198EF401CFF139900CB12C2 /* MineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +434,7 @@
 			baseConfigurationReference = 99C4C9E9C10B4841AD57D5B0 /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruanqiaohua.Demo;
@@ -370,6 +447,7 @@
 			baseConfigurationReference = 715D8217D3F6DA142E58650C /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruanqiaohua.Demo;

@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  Demo
+//
+//  Created by ruanqiaohua on 16/6/1.
+//  Copyright © 2016年 ruanqiaohua. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "DataManager.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
+#endif /* PrefixHeader_pch */

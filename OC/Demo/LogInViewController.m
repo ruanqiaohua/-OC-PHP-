@@ -7,10 +7,10 @@
 //
 
 #import "LogInViewController.h"
-#import "AFNetWorking.h"
 
 @interface LogInViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *password2TextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -30,44 +30,19 @@
 }
 
 - (IBAction)registerBtnAction:(UIButton *)sender {
-    [self requestData];
-}
-
-- (void)requestData {
-    // 启动系统风火轮
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    //服务器给的域名
-    NSString *urlString = @"http://127.0.0.1/action/logIn";
-    //创建一个可变字典
+    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     //往字典里面添加需要提交的参数
     [parameters setValue:_userNameTextField.text forKey:@"username"];
+    [parameters setValue:_nicknameTextField.text forKey:@"nickname"];
     [parameters setValue:_passwordTextField.text forKey:@"password"];
     [parameters setValue:_password2TextField.text forKey:@"password2"];
     [parameters setValue:_emailTextField.text forKey:@"email"];
     
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    session.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
     __weak typeof(self) weakSelf = self;
-    [session POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:NULL];
-        [weakSelf showMessage:response[@"message"]];
-        NSLog(@"%@",response);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[DataManager inst]logIn:parameters successCb:^{
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
-}
-
-- (void)showMessage:(NSString *)message {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [alert dismissViewControllerAnimated:YES completion:nil];
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*

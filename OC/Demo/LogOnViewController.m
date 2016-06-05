@@ -7,7 +7,7 @@
 //
 
 #import "LogOnViewController.h"
-#import "AFNetWorking.h"
+#import "MainTabBarController.h"
 
 @interface LogOnViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -23,46 +23,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fd_prefersNavigationBarHidden = NO;
+    self.fd_interactivePopDisabled = YES;
     // Do any additional setup after loading the view.
 }
 
 - (IBAction)logOnBtnAction:(UIButton *)sender {
-    [self requestData];
-}
-
-- (void)requestData {
-    // 启动系统风火轮
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    //服务器给的域名
-    NSString *urlString = @"http://127.0.0.1/action/logOn";
-    //创建一个可变字典
+    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    //往字典里面添加需要提交的参数
     [parameters setValue:_userNameTextField.text forKey:@"username"];
     [parameters setValue:_passwordTextField.text forKey:@"password"];
-    
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    session.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
+    //登陆
     __weak typeof(self) weakSelf = self;
-    [session POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:NULL];
-        [weakSelf showMessage:response[@"message"]];
-        NSLog(@"%@",response);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[DataManager inst] logOn:parameters successCb:^{
+        [weakSelf performSegueWithIdentifier:@"TabBarVC" sender:weakSelf];
     }];
-}
-
-- (void)showMessage:(NSString *)message {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [alert dismissViewControllerAnimated:YES completion:nil];
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

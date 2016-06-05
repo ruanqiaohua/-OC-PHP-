@@ -14,13 +14,21 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - FDFullscreenPopGesture (1.1)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - FDFullscreenPopGesture (~> 1.1)
+  - SDWebImage (~> 3.7.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: ae8852a45b43e56af1d84e45de83d6017b47aadb
+PODFILE CHECKSUM: 454a9c3372572a6f874ffc9594d392a232b21cdc
 
 COCOAPODS: 1.0.0

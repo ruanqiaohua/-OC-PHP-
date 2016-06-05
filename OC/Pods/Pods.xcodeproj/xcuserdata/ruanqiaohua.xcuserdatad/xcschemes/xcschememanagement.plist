@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FDFullscreenPopGesture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Demo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,7 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF13F595A82C0DD7227F48B9F79F62AB</key>
+		<key>303B3AC6DD17B1EE7D98EF8BF8898BEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>39465907EA3B5F2E3635589E03CBF685</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9018C7CC32F9CF64E946A7F74CFE0494</key>
 		<dict>
 			<key>primary</key>
 			<true/>
