@@ -1,4 +1,5 @@
 <?php
+	require_once('../Common.php');
 	session_start();
 	try {
 		if (!$_SESSION['valid_user']) {
@@ -27,38 +28,6 @@
 		$code = $e->getCode();
 		$message = $e->getMessage();
 		json($code, $message, array());
-	}
-  	//返回json格式的数据
-	function json($code, $message = '', $data = array()) {
-		if (!is_numeric($code)) {
-			return '';
-		}
-		$result = array(
-			'code' => $code,
-			'message' => $message,
-			'data' => $data
-			);
-		echo json_encode($result);
-		exit;
-	}
-	//生成随机字符串
-	function generateRandomString($length = 10) { 
-	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
-	    $randomString = ''; 
-	    for ($i = 0; $i < $length; $i++) { 
-	        $randomString .= $characters[rand(0, strlen($characters) - 1)]; 
-	    } 
-    	return $randomString; 
-	} 
-	//连接mysql中的数据库bookmarks
-	function db_connect() {
-
-		$result = new mysqli('127.0.0.1','root','62203957','bookmarks');
-		if (!$result) {
-			throw new Exception("连接数据库失败",201);
-		} else {
-			return $result;
-		}
 	}
 	//删除原始图片
 	function unlinkUserAvatar() {

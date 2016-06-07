@@ -1,4 +1,5 @@
 <?php
+	require_once('../Common.php');
 	session_start();
 	try {
 		$username = $_SESSION['valid_user'];
@@ -14,6 +15,7 @@
 	}
 	//获取图片
 	function getPhoto($username) {
+
 		$conn = db_connect();
 		$result = $conn->query("SELECT * FROM photo WHERE username = '".$username."'");
 		if (!$result) {
@@ -21,30 +23,9 @@
 		}
 		$array = array();
 		while ($row = mysqli_fetch_array($result)) {
-			$photo = $row['photo'];
+			$photo = $row['image'];
 			array_push($array, $photo);
 		}
 		return $array;
 	}
-	//连接数据库
-	function db_connect() {
-		$result = new mysqli('127.0.0.1', 'root', '62203957', 'bookmarks');
-		if (!$result) {
-			throw new Exception("数据库连接失败", 1);
-		}
-		return $result;
-	}
-	//返回json字符串
-	function json($code, $message = '', $data = array()) {
-		if (!is_numeric($code)) {
-			return '';
-		}
-		$result = array(
-			'code' => $code,
-			'message' => $message,
-			'data' => $data
-			);
-		echo json_encode($result);
-		exit;
-	}	
 ?>

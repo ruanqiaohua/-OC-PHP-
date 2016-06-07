@@ -11,5 +11,7 @@
 
 #import "DataManager.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UIView+SDAutoLayout.h"
+#import "MWPhotoBrowser.h"
 
 #endif /* PrefixHeader_pch */

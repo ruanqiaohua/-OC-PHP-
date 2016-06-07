@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "UIButton+WebCache.h"
+#import "LogOnViewController.h"
 
 @interface MineViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *avatar;
@@ -35,7 +36,7 @@
         NSString *avatar = [NSString stringWithFormat:@"%@/uploads/avatar/%@",HostIp,responseData[@"avatar"]];
         [_avatar sd_setImageWithURL:[NSURL URLWithString:avatar] forState:UIControlStateNormal];
         _nickname.text = [NSString stringWithFormat:@"%@",responseData[@"nickname"]];
-        _username.text = [NSString stringWithFormat:@"用户名:%@",responseData[@"username"]];
+        _username.text = [NSString stringWithFormat:@"用户名: %@",responseData[@"username"]];
     }];
 }
 
@@ -105,16 +106,20 @@
             break;
         case 1:
         {
+        }
+            break;
+        case 2:
+        {
             switch (indexPath.row) {
-                case 1://修改密码
+                case 0://退出登陆
                 {
-                    [self performSegueWithIdentifier:@"changePasswdVC" sender:self];
-                }
-                    break;
-                case 2://退出登陆
-                {
+                    __weak typeof(self) weakSelf = self;
                     [[DataManager inst] logOut:nil successCb:^{
-                        [self.tabBarController.navigationController popToRootViewControllerAnimated:YES];
+                        for (UIViewController *vc in weakSelf.tabBarController.navigationController.viewControllers) {
+                            if ([vc isKindOfClass:[LogOnViewController class]]) {
+                                [weakSelf.tabBarController.navigationController popToViewController:vc animated:YES];
+                            }
+                        }
                     }];
                 }
                     break;
@@ -127,6 +132,7 @@
         default:
             break;
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 /*
 #pragma mark - Navigation

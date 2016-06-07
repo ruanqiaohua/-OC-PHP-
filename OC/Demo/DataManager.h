@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #define HostIp @"http://127.0.0.1"
+//#define HostIp @"http://192.168.1.103"
+//#define HostIp @"http://ruanqiaohua.com"
 
 @interface DataManager : NSObject
-
+@property (nonatomic, copy) NSString *uid;
 /**
  *  初始化单例
  */
@@ -26,6 +28,10 @@
  *  上传图片
  */
 - (void)uploadImage:(NSData *)imageData successCb:(void(^)())successCb;
+/**
+ *  删除图片
+ */
+- (void)removeImage:(NSDictionary *)parameters successCb:(void(^)())successCb;
 /**
  *  登陆
  */

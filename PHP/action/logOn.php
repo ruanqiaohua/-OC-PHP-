@@ -1,59 +1,43 @@
 <?php
+	require_once('../Common.php');
 	$post = $_POST;
 	$username = $post['username'];
 	$password = $post['password'];
-	if ($username && $password) {
-		try {
-			login($username, $password);
-			$_SESSION['valid_user'] = $username;
-			json(0,"登录成功",array());
-		} catch (Exception $e) {
-			$code = $e->getCode();
-			$message = $e->getMessage();
-			json($code,$message,array());
+	session_start();
+	try {
+		if (!$username || !$password) {
+			throw new Exception("请输入用户名和密码", 1);
 		}
-	}
-
-	if (isset($_SESSION['valid_user'])) {
-		json(0,"登录成功",array());
-	} else {
-		json(114,"未登录",array());
+		if ($username == "" || $password == "") {
+			throw new Exception("用户名和密码不能为空", 1);
+		}
+	  	$array = login($username, $password);
+		$_SESSION['valid_user'] = $username;
+		json(0,"登录成功",array(
+				'uid' => $array['uid'],
+			));
+	} catch (Exception $e) {
+		$code = $e->getCode();
+		$message = $e->getMessage();
+		json($code,$message,array());
 	}
 
 	function login($username, $password) {
 		$conn = db_connect();
+		$result = $conn->query("select * from user where username = '".$username."' ");
+		if ($result->num_rows == 0) {
+			throw new Exception("用户名不存在", 205);
+		}
 		$result = $conn->query("select * from user where username = '".$username."' and passwd = sha1('".$password."') ");
 		if (!$result) {
-			throw new Exception("无法执行查询！",201);
+			throw new Exception("数据库操作错误",201);
 		}
-		if ($result->num_rows>0) {
-			return true;
+		if ($result->num_rows > 0) {
+			$row = mysqli_fetch_array($result);
+			return $row;
 		} else {
-			throw new Exception("登陆失败",204);
+			throw new Exception("密码输入错误",204);
 		}
 
-	}
-	//连接mysql中的数据库bookmarks
-	function db_connect() {
-
-		$result = new mysqli('127.0.0.1','root','62203957','bookmarks');
-		if (!$result) {
-			throw new Exception("连接服务器失败！",201);
-		} else {
-			return $result;
-		}
-	}
-	//返回json格式的数据
-	function json($code, $message = '', $data = array()) {
-		if (!is_numeric($code)) {
-			return '';
-		}
-		$result = array(
-			'code' => $code,
-			'message' => $message,
-			'data' => $data
-			);
-		echo json_encode($result);
-		exit;
 	}
 ?>

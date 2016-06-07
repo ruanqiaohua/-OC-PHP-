@@ -15,7 +15,6 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-        
         [self addSubview:self.imageView];
     }
     return self;
@@ -23,7 +22,7 @@
 
 - (void)reloadData:(NSString *)imageName {
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/uploads/avatar/%@",HostIp,imageName];
+    NSString *urlString = [NSString stringWithFormat:@"%@/uploads/image/%@",HostIp,imageName];
     [_imageView sd_setImageWithURL:[NSURL URLWithString:urlString]];
 
 }
@@ -37,7 +36,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     _imageView.frame = self.contentView.bounds;
 }
 

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoCollectionView : UICollectionView
+
+@property (copy, nonatomic) void (^itemDidSelectCb)(NSIndexPath *);
+@property (copy, nonatomic) void (^itemEndLongTap)(NSIndexPath *);
 /**
  *  刷新试图
  *
