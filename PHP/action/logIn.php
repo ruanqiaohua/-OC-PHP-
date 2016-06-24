@@ -29,7 +29,6 @@
 			throw new Exception("密码长度不符合规范", 4);
 		}
 		register($username,$nickname,$email,$password);
-		$_SESSION['valid_user'] = $username;
 		json(0,"注册成功",array());
 	} catch (Exception $e) {
 		$code = $e->getCode();

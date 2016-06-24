@@ -1,5 +1,5 @@
 <?php
-	//连接m数据库
+	//连接内网数据库
 	function db_connect() {
 
 		$result = new mysqli('127.0.0.1','root','62203957','bookmarks');
@@ -9,6 +9,16 @@
 			return $result;
 		}
 	}
+	//连接外网数据库
+	// function db_connect() {
+
+	// 	$result = new mysqli('qdm157633476.my3w.com','qdm157633476','ali62203957','qdm157633476_db');
+	// 	if (!$result) {
+	// 		throw new Exception("连接数据库失败",201);
+	// 	} else {
+	// 		return $result;
+	// 	}
+	// }
 	//返回json格式的数据
 	function json($code, $message = '', $data = array()) {
 		if (!is_numeric($code)) {

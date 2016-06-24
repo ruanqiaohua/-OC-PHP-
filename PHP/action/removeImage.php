@@ -1,8 +1,8 @@
 <?php
 	require_once('../Common.php');
 	session_start();
-	$uid = $_POST['uid'];
 	try {
+		$uid = $_SESSION['uid'];
 		if (!$uid) {
 			throw new Exception("用户ID不存在", -1);
 		}
@@ -35,8 +35,6 @@
 	}
 
 	function delectData($uid, $imageName)  {
-		echo $uid;
-		echo $imageName;
 
 		$conn = db_connect();
 		//DELETE FROM user WHERE user.uid = 3

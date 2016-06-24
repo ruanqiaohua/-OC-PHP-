@@ -2,11 +2,11 @@
 	require_once('../Common.php');
 	session_start();
 	try {
-		$username = $_SESSION['valid_user'];
-		if (!$username) {
+		$uid = $_SESSION['uid'];
+		if (!$uid) {
 			throw new Exception("用户未登陆", 1);
 		}
-		$array = getPhoto($username);
+		$array = getPhoto($uid);
 		json(0, '操作成功', $array);
 	} catch (Exception $e) {
 		$code = $e->getCode();
@@ -14,10 +14,10 @@
 		json($code, $message, array());
 	}
 	//获取图片
-	function getPhoto($username) {
+	function getPhoto($uid) {
 
 		$conn = db_connect();
-		$result = $conn->query("SELECT * FROM photo WHERE username = '".$username."'");
+		$result = $conn->query("SELECT * FROM photo WHERE uid = '".$uid."'");
 		if (!$result) {
 			throw new Exception("数据库操作错误", 1);
 		}

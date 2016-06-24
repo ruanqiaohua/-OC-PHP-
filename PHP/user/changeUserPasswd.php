@@ -9,12 +9,12 @@
 */
 	require_once('../Common.php');
 	session_start();
-	$username = $_SESSION['valid_user'];
+	$uid = $_SESSION['uid'];
 	$oldPasswd = $_POST['oldPasswd'];
 	$newPasswd = $_POST['newPasswd'];
 	$newPasswd2 = $_POST['newPasswd2'];
 	try {
-		if (!$username) {
+		if (!$uid) {
 			throw new Exception("用户未登陆", 104);
 		}
 		if ($newPasswd != $newPasswd2) {
@@ -38,7 +38,7 @@
 
 	function validOldPasswd() {
 		$conn = db_connect();
-		$result = $conn->query("SELECT * FROM user WHERE username = '".$_SESSION['valid_user']."' AND passwd = sha1('".$_POST['oldPasswd']."') ");
+		$result = $conn->query("SELECT * FROM user WHERE uid = '".$_SESSION['uid']."' AND passwd = sha1('".$_POST['oldPasswd']."') ");
 		if (!$result) {
 			throw new Exception("数据库操作错误", 1);
 		}
@@ -50,7 +50,7 @@
 	//
 	function changePasswd() {
 		$conn = db_connect();
-		$result = $conn->query("UPDATE user SET passwd = sha1('".$_POST['newPasswd']."') WHERE username = '".$_SESSION['valid_user']."' ");
+		$result = $conn->query("UPDATE user SET passwd = sha1('".$_POST['newPasswd']."') WHERE uid = '".$_SESSION['uid']."' ");
 		if (!$result) {
 			throw new Exception("数据库操作错误", 1);
 		}

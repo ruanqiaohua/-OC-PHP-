@@ -2,7 +2,7 @@
 	require_once('../Common.php');
 	session_start();
 	try {
-		if (!$_SESSION['valid_user']) {
+		if (!$_SESSION['uid']) {
 			throw new Exception("用户未登陆", 104);
 		}
 		if (!(($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") ||($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/pjpeg"))) {
@@ -33,7 +33,7 @@
 	function unlinkUserAvatar() {
 
 		$conn = db_connect();
-		$result = $conn->query("select * from user where username = '".$_SESSION['valid_user']."'");
+		$result = $conn->query("select * from user where uid = '".$_SESSION['uid']."'");
 		while($row = mysqli_fetch_array($result)) {
 			if ($row['avatar']) {
 				if (file_exists("avatar/".$row['avatar'])) {
@@ -46,7 +46,7 @@
 	function saveUserAvatar($avatar) {
 
 		$conn = db_connect();
-		$result = $conn->query("update user set avatar = '".$avatar."' where username = '".$_SESSION['valid_user']."'");
+		$result = $conn->query("update user set avatar = '".$avatar."' where uid = '".$_SESSION['uid']."'");
 		if (!$result) {
 			throw new Exception("数据库操作错误",201);
 		}

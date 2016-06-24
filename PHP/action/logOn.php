@@ -12,7 +12,7 @@
 			throw new Exception("用户名和密码不能为空", 1);
 		}
 	  	$array = login($username, $password);
-		$_SESSION['valid_user'] = $username;
+		$_SESSION['uid'] = $array['uid'];
 		json(0,"登录成功",array(
 				'uid' => $array['uid'],
 			));

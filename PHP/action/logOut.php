@@ -1,9 +1,9 @@
 <?php
 	require_once('../Common.php');
 	session_start();
-	$old_user = $_SESSION['valid_user'];
+	$old_user = $_SESSION['uid'];
 
-	unset($_SESSION['valid_user']);
+	unset($_SESSION['uid']);
 	$result_dest = session_destroy();
 
 	if (!empty($old_user)) {

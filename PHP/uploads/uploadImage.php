@@ -2,9 +2,8 @@
 	require_once('../Common.php');
 	session_start();
 	try {
-		$uid = $_POST['uid'];
-		$username = $_SESSION['valid_user'];
-		if (!$username) {
+		$uid = $_SESSION['uid'];
+		if (!$uid) {
 			throw new Exception("用户未登陆", 104);
 		}
 		if (!$uid) {
@@ -26,7 +25,7 @@
 	   		throw new Exception('文件名已存在', -1);
 	   	}
 		move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
-		saveImage($uid, $image_name, $username);//保存图片地址
+		saveImage($uid, $image_name);//保存图片地址
 		json(0, '上传成功', array('avatar'=>$image_name));
 	} catch (Exception $e) {
 		$code = $e->getCode();
@@ -34,10 +33,10 @@
 		json($code, $message, array());
 	}
 	//保存图片
-	function saveImage($uid, $image, $username) {
+	function saveImage($uid, $image) {
 
 		$conn = db_connect();
-		$result = $conn->query("INSERT INTO photo (uid, username, image) VALUES ('".$uid."', '".$username."', '".$image."')");
+		$result = $conn->query("INSERT INTO photo (uid, image) VALUES ('".$uid."', '".$image."')");
 		if (!$result) {
 			throw new Exception("数据库操作错误",201);
 		}
